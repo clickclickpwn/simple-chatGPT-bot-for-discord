@@ -1,0 +1,85 @@
+Put the name your bot file into a folder.
+
+name the folder whatever you want.
+
+
+edit the exclamation point to whatever symbol you want, or leave it,
+and add to it the way you want to message the bot, for example:
+
+  !EXAMPLE hello or *EXAMPLE how are you
+
+Save file.
+
+
+Go to discord developer portal, create an app, name it whatever, give it a description
+this will be displayed on the side when you right click it in your server.
+
+
+save these changes.
+
+  
+ go to the bot section,
+name it whatever. make it public or not, give it message content permission, and check
+the send message box.
+
+
+go to the OAuth2 Section, click the generate URL section, checkmark bot under the scope section,
+then checkmark send messages under permissions, dont do admin as this will allow your bot
+to be dangerous and potentially kill servers.
+
+
+use the URL in your server or even your browser, invite your bot, it should be offline in your
+server with these permissions.
+  
+  
+
+
+
+
+  
+After this is completed:
+
+
+Go to your discord bot, get a token, do not exit out once you copy and paste,
+the bot needs to go online with the token given, or discord will invalidate it.
+
+copy and paste the token into the token location of the file.
+
+save file.
+
+  
+
+
+once youve done this, open your terminal
+
+install python if you havent with the pip command,
+
+cd into your folder, for example
+
+  cd Desktop/YOU_RFOLDER_NAME
+
+hit ls, this should let you see your discord bot file.
+
+use python yourbotname.py
+
+Your bot should now be logged in to whatever server you invited it to,
+you can now leave the discord developer portal, and move on to the chatGPT api.
+
+hit ctrl + c to shut off the bot.
+
+
+go to the chat gpt api, do the same thing as the discord bot, keep the api key open
+until the bot is running again 
+
+copy and paste you token to the open api part of the code
+
+save the file.
+
+
+use python yourbotname.py
+
+
+your bot should now be running, and when you use whatever string or !example you like,
+it should now respond with a message from the chatgpt api in your discord server.
+
+
