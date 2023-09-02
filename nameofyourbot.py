@@ -1,8 +1,8 @@
 import discord
 import openai
 
-
-
+# Create a dictionary to store user-specific information
+user_memory = {}
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -18,15 +18,22 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-
-# add the word to the exclamation point you want to use to make it talk
     if message.content.startswith('!'):
         user_input = message.content[len('! '):]  # Extract user input
-       
-        
+
+        # Check if the user has interacted with the bot before
+        if message.author.id not in user_memory:
+            user_memory[message.author.id] = []
+
+        # Store the user's message in memory
+        user_memory[message.author.id].append(user_input)
+
+        # Join the user's previous messages to provide context
+        conversation_history = "\n".join(user_memory[message.author.id])
+
         # Indicate that the bot is typing
         async with message.channel.typing():
-            response = await generate_response(user_input)  # Await the response
+            response = await generate_response(conversation_history)  # Await the response
             await message.channel.send(response)
 
 async def generate_response(input_text):
@@ -45,12 +52,8 @@ async def generate_response(input_text):
         print(f"Error generating response: {e}")
         return "An error occurred while generating the response."
 
-
 # Set your OpenAI API key
-openai.api_key = ''
+openai.api_key = 'YOUR_OPENAI_API_KEY'
 
 # Run the bot with the token
-client.run('');
-
-
-
+client.run('YOUR_BOT_TOKEN')
